@@ -393,8 +393,8 @@ function resize(){
   }
 
   BS=Math.floor(Math.min(avH/ROWS,avW/COLS));
-  if(mob){BS=Math.min(Math.floor(window.innerWidth/COLS),Math.floor(avH/ROWS));BS=Math.floor(BS*0.65);}
-  BS=Math.max(mob?10:16,Math.min(BS,mob?22:36));
+  if(mob){BS=Math.min(Math.floor(window.innerWidth/COLS),Math.floor(avH/ROWS));BS=Math.floor(BS*0.55);}
+  BS=Math.max(mob?9:16,Math.min(BS,mob?19:36));
 
   gc.width=BS*COLS; gc.height=BS*ROWS;
   pc.width=gc.width; pc.height=gc.height;
