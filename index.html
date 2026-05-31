@@ -380,9 +380,9 @@ function resize(){
   document.getElementById('mhud').style.display=mob?'flex':'none';
   document.getElementById('mctrl').style.display=mob?'block':'none';
 
-  const ctrlH=mob?88:0;
-  const hudH=mob?46:0;
-  const padH=mob?0:12;
+  const ctrlH=mob?92:0;
+  const hudH=mob?50:0;
+  const padH=mob?8:12;
   const avH=window.innerHeight-ctrlH-hudH-padH;
 
   let avW;
@@ -394,7 +394,7 @@ function resize(){
 
   BS=Math.floor(Math.min(avH/ROWS,avW/COLS));
   if(mob){BS=Math.min(Math.floor(window.innerWidth/COLS),Math.floor(avH/ROWS));}
-  BS=Math.max(mob?16:16,Math.min(BS,mob?48:36));
+  BS=Math.max(mob?14:16,Math.min(BS,mob?30:36));
 
   gc.width=BS*COLS; gc.height=BS*ROWS;
   pc.width=gc.width; pc.height=gc.height;
