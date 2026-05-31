@@ -34,8 +34,10 @@
     overflow:hidden; height:100%; width:100%; position:relative;
   }
 
+  /* ===== BG ===== */
   #bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
 
+  /* ===== FULLSCREEN BTN ===== */
   #fs-btn{
     position:fixed; top:10px; right:10px; z-index:200;
     background:rgba(10,15,26,0.8); border:1px solid var(--border);
@@ -45,6 +47,7 @@
   }
   #fs-btn:hover{border-color:var(--neon-c);color:var(--neon-c);box-shadow:var(--glow)}
 
+  /* ===== SCREENS ===== */
   .screen{
     position:absolute;inset:0;z-index:10;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -52,6 +55,7 @@
   }
   .screen.hidden{opacity:0;pointer-events:none;transform:scale(0.97)}
 
+  /* ===== START ===== */
   #start-screen{gap:14px;padding:16px;overflow-y:auto}
   .game-title{
     font-family:var(--font-title);font-size:clamp(1.8rem,6vw,4.2rem);font-weight:900;
@@ -112,11 +116,13 @@
   .mode-btn.active{border-color:var(--neon-m);color:var(--neon-m);box-shadow:var(--glow-m);background:rgba(255,0,255,0.07)}
   .mode-btn:hover:not(.active){border-color:var(--text2);color:var(--text)}
 
+  /* ===== GAME SCREEN ===== */
   #game-screen{
     flex-direction:row;align-items:center;justify-content:center;
     gap:10px;padding:6px;
   }
 
+  /* Side panels — desktop */
   .side-panel{
     display:flex;flex-direction:column;gap:7px;
     width:var(--panel-w);flex-shrink:0;align-self:flex-start;
@@ -129,6 +135,7 @@
   .panel-card .val{font-size:1rem;color:var(--neon-c);font-weight:700;text-shadow:var(--glow);line-height:1}
   .panel-card .val.big{font-size:1.3rem}
 
+  /* Canvas */
   #canvas-wrap{
     position:relative;flex-shrink:0;
     border:1px solid var(--border);border-radius:12px;overflow:hidden;
@@ -144,11 +151,13 @@
   #sprint-progress{width:100%;background:var(--border);border-radius:3px;height:5px;overflow:hidden;margin-top:4px}
   #sprint-fill{height:100%;background:var(--neon-g);transition:width 0.2s;border-radius:3px}
 
+  /* Overlays */
   .overlay{position:absolute;inset:0;z-index:20;background:rgba(2,4,8,0.88);backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;transition:opacity 0.3s}
   .overlay.hidden{opacity:0;pointer-events:none}
   .overlay-title{font-family:var(--font-title);font-size:1.6rem;font-weight:900;letter-spacing:0.14em;color:var(--neon-c);text-shadow:var(--glow)}
   .overlay-btns{display:flex;flex-direction:column;gap:7px;width:190px}
 
+  /* ===== MOBILE CONTROLS ===== */
   #mobile-controls{
     position:fixed;bottom:0;left:0;right:0;z-index:15;
     padding:6px 8px 8px;
@@ -170,6 +179,7 @@
   .ctrl-btn.hold-btn{border-color:var(--neon-m);color:var(--neon-m)}
   .ctrl-btn.drop-btn{border-color:var(--neon-y);color:var(--neon-y)}
 
+  /* ===== MOBILE TOP HUD (shown instead of side panels on mobile) ===== */
   #mobile-hud{
     position:fixed;top:0;left:0;right:0;z-index:14;
     background:linear-gradient(rgba(2,4,8,0.95),transparent);
@@ -181,6 +191,7 @@
   .mhud-lbl{font-size:0.52rem;letter-spacing:0.15em;color:var(--text2);text-transform:uppercase}
   .mhud-val{font-size:0.9rem;color:var(--neon-c);font-weight:700;line-height:1.2}
 
+  /* ===== INSTRUCTIONS ===== */
   #instructions-overlay{position:fixed;inset:0;z-index:50;background:rgba(2,4,8,0.95);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:16px}
   #instructions-overlay.hidden{display:none}
   .instr-box{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:22px;max-width:480px;width:100%;max-height:90dvh;overflow-y:auto}
@@ -190,6 +201,7 @@
   .key-row{display:flex;justify-content:space-between;margin-bottom:4px;font-size:0.78rem;color:var(--text2)}
   .key{background:var(--panel2);border:1px solid var(--border);border-radius:4px;padding:2px 7px;color:var(--text);font-size:0.72rem}
 
+  /* ===== GAME OVER / SETTINGS ===== */
   #gameover-screen,#settings-screen,#stats-screen{z-index:30}
   .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;width:min(360px,92vw)}
   .stat-card{background:var(--panel);border:1px solid var(--border);border-radius:9px;padding:12px;text-align:center}
@@ -210,16 +222,20 @@
   .ach-item.locked{opacity:0.38}
   .ach-item.unlocked .ach-name{color:var(--neon-y)}
 
+  /* Achievement toast */
   #achievement-toast{position:fixed;top:14px;right:14px;z-index:200;background:var(--panel2);border:1px solid var(--neon-y);border-radius:10px;padding:10px 16px;box-shadow:0 0 20px rgba(255,238,0,0.3);transform:translateX(120%);transition:transform 0.4s;max-width:250px}
   #achievement-toast.show{transform:translateX(0)}
   .toast-title{font-size:0.62rem;letter-spacing:0.18em;color:var(--neon-y);text-transform:uppercase}
   .toast-name{font-size:0.9rem;color:var(--text);margin-top:3px}
 
+  /* ===== RESPONSIVE BREAKPOINTS ===== */
+  /* Tablet landscape / small laptop */
   @media(max-width:900px){
     :root{--panel-w:100px;--panel-r:108px}
     .panel-card .val.big{font-size:1.1rem}
     .panel-card .val{font-size:0.9rem}
   }
+  /* Tablet portrait / large phone landscape */
   @media(max-width:700px){
     #left-panel,#right-panel{display:none!important}
     #mobile-hud{display:flex!important}
@@ -227,6 +243,7 @@
     #game-screen{padding:0;align-items:flex-start;padding-top:52px}
     #canvas-wrap{border-radius:0;border-left:none;border-right:none}
   }
+  /* Phone portrait */
   @media(max-width:480px){
     .game-title{font-size:clamp(1.5rem,10vw,2.4rem)}
     .menu-box{padding:14px 16px;gap:8px}
@@ -234,6 +251,7 @@
     #mobile-controls .ctrl-btn .icon{font-size:1rem}
   }
 
+  /* Fullscreen adjustments */
   :fullscreen #fs-btn,::backdrop #fs-btn{top:12px;right:12px}
   :fullscreen body,:-webkit-full-screen body{overflow:hidden}
 </style>
@@ -241,13 +259,17 @@
 <body>
 
 <canvas id="bg-canvas"></canvas>
+
+<!-- Fullscreen button -->
 <button id="fs-btn" onclick="toggleFullscreen()" title="Toggle Fullscreen">⛶</button>
 
+<!-- Achievement toast -->
 <div id="achievement-toast">
   <div class="toast-title">🏆 Achievement Unlocked!</div>
   <div class="toast-name" id="toast-name"></div>
 </div>
 
+<!-- Instructions -->
 <div id="instructions-overlay" class="hidden">
   <div class="instr-box">
     <div class="instr-title">How to Play</div>
@@ -281,8 +303,8 @@
       <h3>Game Modes</h3>
       <div style="font-size:0.78rem;color:var(--text2);line-height:1.8">
         <b style="color:var(--text)">Classic</b> — standard Tetris<br>
-        <b style="color:var(--text)">Sprint</b> — clear 25 lines fastest<br>
-        <b style="color:var(--text)">Marathon</b> — survive 10 levels<br>
+        <b style="color:var(--text)">Sprint</b> — clear 40 lines fastest<br>
+        <b style="color:var(--text)">Marathon</b> — survive 15 levels<br>
         <b style="color:var(--text)">Endless</b> — play forever
       </div>
     </div>
@@ -290,7 +312,7 @@
   </div>
 </div>
 
-<!-- START SCREEN -->
+<!-- ===== START SCREEN ===== -->
 <div class="screen" id="start-screen">
   <div class="game-title">ADVANCED<br>TETRIS</div>
   <div class="subtitle">Arcade Edition</div>
@@ -298,7 +320,7 @@
     <div class="menu-label">Game Mode</div>
     <div class="mode-grid">
       <button class="mode-btn active" data-mode="classic">Classic</button>
-      <button class="mode-btn" data-mode="sprint">Sprint 25L</button>
+      <button class="mode-btn" data-mode="sprint">Sprint 40L</button>
       <button class="mode-btn" data-mode="marathon">Marathon</button>
       <button class="mode-btn" data-mode="endless">Endless</button>
     </div>
@@ -328,8 +350,10 @@
   </div>
 </div>
 
-<!-- GAME SCREEN -->
+<!-- ===== GAME SCREEN ===== -->
 <div class="screen hidden" id="game-screen">
+
+  <!-- Mobile top HUD -->
   <div id="mobile-hud">
     <div class="mhud-item"><div class="mhud-lbl">Score</div><div class="mhud-val" id="mhud-score">0</div></div>
     <div class="mhud-item"><div class="mhud-lbl">Level</div><div class="mhud-val" id="mhud-level">1</div></div>
@@ -339,6 +363,7 @@
     <div class="mhud-item" style="flex:0.7"><div class="mhud-lbl">Next</div><canvas id="next-canvas-m" width="36" height="36" style="display:block;margin:0 auto"></canvas></div>
   </div>
 
+  <!-- LEFT panel -->
   <div class="side-panel" id="left-panel">
     <div class="panel-card"><div class="lbl">Score</div><div class="val big" id="hud-score">0</div></div>
     <div class="panel-card"><div class="lbl">High Score</div><div class="val" id="hud-hs">0</div></div>
@@ -356,6 +381,7 @@
     <button class="btn" id="pause-btn" style="font-size:0.72rem;padding:7px">⏸ Pause</button>
   </div>
 
+  <!-- GAME CANVAS -->
   <div id="canvas-wrap">
     <canvas id="game-canvas"></canvas>
     <canvas id="particle-canvas"></canvas>
@@ -372,6 +398,7 @@
     </div>
   </div>
 
+  <!-- RIGHT panel -->
   <div class="side-panel right" id="right-panel">
     <div class="panel-card"><div class="lbl">Hold</div><canvas id="hold-canvas" width="80" height="60" style="display:block;margin:0 auto"></canvas></div>
     <div class="panel-card"><div class="lbl">Next</div><canvas id="next-canvas" width="80" height="260" style="display:block;margin:0 auto"></canvas></div>
@@ -379,7 +406,7 @@
   </div>
 </div>
 
-<!-- GAME OVER -->
+<!-- ===== GAME OVER ===== -->
 <div class="screen hidden" id="gameover-screen">
   <div class="game-title" style="font-size:clamp(1.5rem,5vw,2.8rem);margin-bottom:8px">GAME OVER</div>
   <div id="new-hs-msg" class="new-hs hidden">✦ NEW HIGH SCORE ✦</div>
@@ -397,7 +424,7 @@
   </div>
 </div>
 
-<!-- SETTINGS -->
+<!-- ===== SETTINGS ===== -->
 <div class="screen hidden" id="settings-screen">
   <div class="menu-box">
     <div style="font-family:var(--font-title);font-size:1.1rem;color:var(--neon-c);letter-spacing:0.12em">Settings</div>
@@ -424,7 +451,7 @@
   </div>
 </div>
 
-<!-- STATS -->
+<!-- ===== STATS ===== -->
 <div class="screen hidden" id="stats-screen">
   <div class="menu-box" style="max-height:88dvh;overflow-y:auto">
     <div style="font-family:var(--font-title);font-size:1.1rem;color:var(--neon-c);letter-spacing:0.12em;margin-bottom:8px">Statistics</div>
@@ -437,7 +464,7 @@
   </div>
 </div>
 
-<!-- MOBILE CONTROLS -->
+<!-- ===== MOBILE CONTROLS ===== -->
 <div id="mobile-controls">
   <div class="ctrl-row">
     <button class="ctrl-btn hold-btn" id="mc-hold"><span class="icon">📦</span>Hold</button>
@@ -454,14 +481,11 @@
 </div>
 
 <script>
-const COLS=10,ROWS=20,HIDDEN=2,TOTAL_ROWS=22;
+/* =====================================================
+   ADVANCED TETRIS — Full Game Engine
+   ===================================================== */
 
-// Lines needed per level — reduced from 10 to 6 for shorter games
-const LINES_PER_LEVEL=6;
-// Sprint target — reduced from 40 to 25
-const SPRINT_TARGET=25;
-// Marathon max level — reduced from 15 to 10
-const MARATHON_LEVELS=10;
+const COLS=10,ROWS=20,HIDDEN=2,TOTAL_ROWS=22;
 
 const PIECES={
   I:{color:'#00f5ff',cells:[[[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]],[[0,0,1,0],[0,0,1,0],[0,0,1,0],[0,0,1,0]],[[0,0,0,0],[0,0,0,0],[1,1,1,1],[0,0,0,0]],[[0,1,0,0],[0,1,0,0],[0,1,0,0],[0,1,0,0]]]},
@@ -481,14 +505,12 @@ const KICK={
 
 const LINE_SCORES=[0,100,300,500,800];
 const TSPIN_SCORES=[400,800,1200,1600];
-
-// Faster base speeds and steeper curve for shorter games
-const DIFF_SPEEDS={easy:700,medium:420,hard:240,extreme:110};
-
+const DIFF_SPEEDS={easy:850,medium:520,hard:300,extreme:140};
 const POWERUP_TYPES=['bomb','rowclear','slow','multiplier','freeze'];
 const POWERUP_LABELS={bomb:'💣 Bomb',rowclear:'🔥 Row Clear',slow:'🐢 Slow Mo',multiplier:'×2 Score',freeze:'❄️ Freeze'};
 const POWERUP_DUR={slow:8000,multiplier:10000,freeze:5000};
 
+// State
 let G={};
 let settings=load('tetris_settings',{});
 let stats=load('tetris_stats',{});
@@ -499,6 +521,7 @@ let currentSkin=settings.skin||'neon';
 let selectedMode='classic';
 let selectedDiff=settings.diff||'medium';
 
+// Canvas refs
 const gameCanvas=document.getElementById('game-canvas');
 const ctx=gameCanvas.getContext('2d');
 const particleCanvas=document.getElementById('particle-canvas');
@@ -514,8 +537,9 @@ const nextCtxM=nextCanvasM.getContext('2d');
 const bgCanvas=document.getElementById('bg-canvas');
 const bgCtx=bgCanvas.getContext('2d');
 
-let BS=28;
+let BS=28; // block size
 
+// ===== RESPONSIVE LAYOUT =====
 function isMobileView(){return window.innerWidth<=700}
 
 function resizeGame(){
@@ -551,6 +575,7 @@ function resizeGame(){
   bgCanvas.height=window.innerHeight;
 }
 
+// ===== FULLSCREEN =====
 function toggleFullscreen(){
   if(!document.fullscreenElement&&!document.webkitFullscreenElement){
     const el=document.documentElement;
@@ -572,6 +597,7 @@ function updateFsIcon(){
 document.addEventListener('fullscreenchange',()=>{updateFsIcon();setTimeout(()=>{resizeGame();if(G.current&&!G.gameOver){render();drawHold();drawNext();}initBgParticles();},100)});
 document.addEventListener('webkitfullscreenchange',()=>{updateFsIcon();setTimeout(()=>{resizeGame();if(G.current&&!G.gameOver){render();drawHold();drawNext();}initBgParticles();},100)});
 
+// ===== AUDIO =====
 let audioCtx=null,musicGain,sfxGain,musicOscs=[];
 let sfxVol=(settings.sfxVol||80)/100;
 let musicVol=(settings.musicVol||60)/100;
@@ -629,6 +655,7 @@ function stopMusic(){
   musicOscs=[];
 }
 
+// ===== BG PARTICLES =====
 let bgP=[];
 function initBgParticles(){
   bgP=Array.from({length:55},()=>({
@@ -652,6 +679,7 @@ function drawBg(){
   requestAnimationFrame(drawBg);
 }
 
+// ===== PARTICLES =====
 let particles=[];
 function spawnP(x,y,color,count=10,type='normal'){
   for(let i=0;i<count;i++){
@@ -679,6 +707,7 @@ function updateParticles(){
 let shakeAmt=0,shakeX=0,shakeY=0;
 function shake(a){shakeAmt=a}
 
+// ===== GAME BOARD =====
 function createBoard(){return Array.from({length:TOTAL_ROWS},()=>Array(COLS).fill(null))}
 function createBag(){
   const b=[...PNAMES];
@@ -746,6 +775,7 @@ function tryRotate(board,piece,dir){
   return null;
 }
 
+// ===== POWER-UPS =====
 function activatePowerup(type){
   SFX.powerup();
   if(type==='bomb'){
@@ -776,6 +806,7 @@ function updatePUHud(){
   }
 }
 
+// ===== INIT GAME =====
 function initGame(){
   G={
     board:createBoard(),
@@ -797,13 +828,13 @@ function initGame(){
 
 function getDropSpeed(){
   const base=DIFF_SPEEDS[G.diff];
-  // Steeper speed curve: 0.82 factor (was 0.86) means speed increases faster each level
-  let speed=base*Math.pow(0.82,G.level-1);
+  let speed=base*Math.pow(0.86,G.level-1);
   if(G.activePU.slow)speed*=2;
   if(G.mode==='marathon')speed*=0.9;
-  return Math.max(speed,30);
+  return Math.max(speed,38);
 }
 
+// ===== GAME LOOP =====
 let animFrame;
 function gameLoop(ts){
   if(G.gameOver)return;
@@ -811,12 +842,14 @@ function gameLoop(ts){
   const dt=Math.min(ts-G.lastTime,100);
   G.lastTime=ts;
 
+  // powerup timers
   for(const k of Object.keys(G.activePU)){
     G.activePU[k]-=dt;
     if(G.activePU[k]<=0)delete G.activePU[k];
   }
   G.scoreMultiplier=G.activePU.multiplier?2:1;
 
+  // gravity
   if(!G.activePU.freeze){
     G.dropTimer+=dt;
     if(G.dropTimer>=getDropSpeed()){
@@ -830,6 +863,7 @@ function gameLoop(ts){
     }
   }
 
+  // shake
   if(shakeAmt>0){
     shakeX=(Math.random()-0.5)*shakeAmt; shakeY=(Math.random()-0.5)*shakeAmt;
     shakeAmt*=0.84; if(shakeAmt<0.5){shakeAmt=0;shakeX=0;shakeY=0}
@@ -840,6 +874,7 @@ function gameLoop(ts){
   animFrame=requestAnimationFrame(gameLoop);
 }
 
+// ===== MOVEMENT =====
 function movePiece(dx,dy){
   if(!G.current||G.gameOver||G.paused)return false;
   if(isValid(G.board,G.current,dx,dy)){
@@ -921,8 +956,7 @@ function lockPiece(){
     for(let i=0;i<lc;i++)spawnLineP(ROWS-1-i);
     shake(lc>=4?8:4);
     G.lines+=lc;
-    // Level up every LINES_PER_LEVEL lines (6 instead of 10)
-    const nl=Math.floor(G.lines/LINES_PER_LEVEL)+1;
+    const nl=Math.floor(G.lines/10)+1;
     if(nl>G.level){
       G.level=nl;SFX.levelup();
       showComboText(`LEVEL ${G.level}!`,'#ffee00');
@@ -935,17 +969,16 @@ function lockPiece(){
     document.getElementById('combo-panel').style.display='none';
   }
 
-  // Sprint: 25 line target
+  // Sprint progress
   if(G.mode==='sprint'){
-    document.getElementById('sprint-fill').style.width=Math.min(G.lines/SPRINT_TARGET*100,100)+'%';
-    if(G.lines>=SPRINT_TARGET){endGame(true);return}
+    document.getElementById('sprint-fill').style.width=Math.min(G.lines/40*100,100)+'%';
+    if(G.lines>=40){endGame(true);return}
   }
-  // Marathon: 10 level cap
-  if(G.mode==='marathon'&&G.level>MARATHON_LEVELS){endGame(true);return}
+  if(G.mode==='marathon'&&G.level>15){endGame(true);return}
 
-  // Power-ups: spawn every 12-22 pieces (was 20-35) for more frequent action
+  // Power-up spawn
   G.puCounter++;
-  if(G.puCounter>=12+Math.floor(Math.random()*10)){
+  if(G.puCounter>=20+Math.floor(Math.random()*15)){
     G.puCounter=0;
     activatePowerup(POWERUP_TYPES[Math.floor(Math.random()*POWERUP_TYPES.length)]);
   }
@@ -972,12 +1005,14 @@ function showComboText(text,color){
   clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove('show'),1200);
 }
 
+// ===== HUD =====
 function updateHUD(){
   const elapsed=G.paused?(G.pauseStart-G.startTime-G.pauseTime):(Date.now()-G.startTime-G.pauseTime);
   const secs=Math.floor(elapsed/1000);
   const timeStr=`${Math.floor(secs/60)}:${(secs%60).toString().padStart(2,'0')}`;
   const hs=getHighScore();
 
+  // Desktop panels
   document.getElementById('hud-score').textContent=G.score.toLocaleString();
   document.getElementById('hud-level').textContent=G.level;
   document.getElementById('hud-lines').textContent=G.lines;
@@ -985,6 +1020,7 @@ function updateHUD(){
   document.getElementById('hud-hs').textContent=hs.toLocaleString();
   document.getElementById('hud-mode').textContent=G.mode.charAt(0).toUpperCase()+G.mode.slice(1);
 
+  // Mobile HUD
   document.getElementById('mhud-score').textContent=G.score.toLocaleString();
   document.getElementById('mhud-level').textContent=G.level;
   document.getElementById('mhud-lines').textContent=G.lines;
@@ -994,6 +1030,7 @@ function updateHUD(){
   document.getElementById('ach-count').textContent=`${achU}/${Object.keys(ACHI_DEFS).length}`;
 }
 
+// ===== RENDER =====
 function drawBlock(c,x,y,color,ghost=false){
   if(!color)return;
   const s=BS;
@@ -1029,14 +1066,17 @@ function render(){
   ctx.save();
   if(shakeAmt>0)ctx.translate(shakeX,shakeY);
 
+  // bg grid
   ctx.fillStyle='rgba(255,255,255,0.018)';
   for(let r=0;r<ROWS;r++) for(let c=0;c<COLS;c++) if((r+c)%2===0) ctx.fillRect(c*BS,r*BS,BS,BS);
   ctx.strokeStyle='rgba(255,255,255,0.035)'; ctx.lineWidth=0.5;
   for(let c=1;c<COLS;c++){ctx.beginPath();ctx.moveTo(c*BS,0);ctx.lineTo(c*BS,ROWS*BS);ctx.stroke()}
   for(let r=1;r<ROWS;r++){ctx.beginPath();ctx.moveTo(0,r*BS);ctx.lineTo(COLS*BS,r*BS);ctx.stroke()}
 
+  // board
   for(let r=HIDDEN;r<TOTAL_ROWS;r++) for(let c=0;c<COLS;c++) if(G.board[r][c]) drawBlock(ctx,c,r-HIDDEN,G.board[r][c]);
 
+  // ghost + current
   if(G.current){
     const gy=getGhostY(G.board,G.current);
     const cells=getCells(G.current);
@@ -1093,6 +1133,7 @@ function drawNext(){
     nextCtx.shadowBlur=0;
     if(i<4){nextCtx.strokeStyle='rgba(255,255,255,0.05)';nextCtx.lineWidth=1;nextCtx.beginPath();nextCtx.moveTo(4,(i+1)*slotH);nextCtx.lineTo(nextCanvas.width-4,(i+1)*slotH);nextCtx.stroke()}
   });
+  // Mobile: show only next 1
   if(isMobileView()&&G.bag.length>0){
     const p=PIECES[G.bag[0]];const cells=p.cells[0];const bsz=9;
     nextCtxM.clearRect(0,0,nextCanvasM.width,nextCanvasM.height);
@@ -1107,6 +1148,7 @@ function drawNext(){
   }
 }
 
+// ===== START / STOP =====
 function startGame(){
   initAudio();
   resizeGame();
@@ -1167,6 +1209,7 @@ function restartGame(){
   startGame();
 }
 
+// ===== ACHIEVEMENTS =====
 const ACHI_DEFS={
   first_tetris:{name:'First Tetris',desc:'Clear 4 lines at once',icon:'💎'},
   combo_master:{name:'Combo Master',desc:'Get a 5x combo',icon:'🔥'},
@@ -1192,6 +1235,7 @@ function showToast(name){
   setTimeout(()=>el.classList.remove('show'),3500);
 }
 
+// ===== SCREENS =====
 function showScreen(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.add('hidden'));
   const el=document.getElementById(id);
@@ -1225,6 +1269,7 @@ function fmtTime(ms){
   if(h>0)return`${h}h ${m%60}m`; if(m>0)return`${m}m ${s%60}s`; return`${s}s`;
 }
 
+// ===== SETTINGS =====
 function toggleSound(){
   soundOn=!soundOn;
   document.getElementById('sound-toggle').classList.toggle('on',soundOn);
@@ -1257,15 +1302,20 @@ function setSkin(skin){
 }
 function saveSettings(){save('tetris_settings',settings)}
 
+// ===== STORAGE =====
 function load(key,def){try{return JSON.parse(localStorage.getItem(key)||'null')||def}catch{return def}}
 function save(key,val){localStorage.setItem(key,JSON.stringify(val))}
 function getHighScore(){return parseInt(localStorage.getItem('tetris_hs')||'0')}
 function saveHighScore(s){localStorage.setItem('tetris_hs',s)}
 
+// ===== KEYBOARD =====
 document.addEventListener('keydown',e=>{
   if(e.repeat)return;
   const inGame=!document.getElementById('game-screen').classList.contains('hidden');
+
+  // Fullscreen shortcut (F or F11)
   if(e.code==='KeyF'||e.code==='F11'){e.preventDefault();toggleFullscreen();return}
+
   if(!inGame||!G.current||G.gameOver)return;
   switch(e.code){
     case 'ArrowLeft':movePiece(-1,0);startRepeat(()=>movePiece(-1,0));break;
@@ -1288,6 +1338,7 @@ let repeatInterval;
 function startRepeat(fn){stopRepeat();repeatInterval=setTimeout(()=>{repeatInterval=setInterval(fn,60)},150)}
 function stopRepeat(){clearTimeout(repeatInterval);clearInterval(repeatInterval)}
 
+// ===== MOBILE CONTROLS =====
 function setupMobile(){
   const cmap={
     'mc-left':()=>movePiece(-1,0),
@@ -1312,6 +1363,7 @@ function setupMobile(){
   }
 }
 
+// ===== START SCREEN EVENTS =====
 document.getElementById('play-btn').addEventListener('click',startGame);
 document.querySelectorAll('.diff-btn[data-diff]').forEach(btn=>btn.addEventListener('click',()=>setDiff(btn.dataset.diff)));
 document.querySelectorAll('.mode-btn').forEach(btn=>btn.addEventListener('click',()=>{
@@ -1320,6 +1372,7 @@ document.querySelectorAll('.mode-btn').forEach(btn=>btn.addEventListener('click'
 }));
 document.getElementById('pause-btn').addEventListener('click',()=>G.paused?resumeGame():pauseGame());
 
+// ===== INIT =====
 function init(){
   resizeGame();
   initBgParticles();
@@ -1349,4 +1402,4 @@ document.addEventListener('touchmove',e=>e.preventDefault(),{passive:false});
 init();
 </script>
 </body>
-</html>
+</html> 
