@@ -392,9 +392,8 @@ function resize(){
     avW=window.innerWidth-220;
   }
 
-  BS=Math.floor(Math.min(avH/ROWS,avW/COLS));
-  if(mob){BS=Math.min(Math.floor(window.innerWidth/COLS),Math.floor(avH/ROWS));BS=Math.floor(BS*0.42);}
-  BS=Math.max(mob?8:16,Math.min(BS,mob?16:36));
+  if(mob){BS=14;}
+  else{BS=Math.floor(Math.min(avH/ROWS,avW/COLS));BS=Math.max(14,Math.min(BS,24));}
 
   gc.width=BS*COLS; gc.height=BS*ROWS;
   pc.width=gc.width; pc.height=gc.height;
